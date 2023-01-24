@@ -1,12 +1,12 @@
 def pascal_triangle(n):
     """
-    Returns a list of lists of integers representing the Pascal's triangle of n.
+    Returns a list of lists of integers printing the Pascal's triangle of n.
 
     Parameters:
     n (int): The number of rows of the Pascal's triangle
 
     Returns:
-    list of lists of integers: A list of lists of integers representing the Pascal's triangle of n.
+    list of lists of integers: Representing the Pascal's triangle of n.
     If n <= 0, returns an empty list.
     """
     triangle = []
