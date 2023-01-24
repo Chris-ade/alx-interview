@@ -2,7 +2,7 @@
 """
 0-main
 """
-import tests/pascal_triangle
+import tests.pascal_triangle
 
 def print_triangle(triangle):
     """
