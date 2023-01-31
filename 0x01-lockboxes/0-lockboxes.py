@@ -5,6 +5,13 @@ Returns a boolean which determines if all the boxes can be opened.
 
 
 def canUnlockAll(boxes):
+    """
+    Returns a boolean which determines if all the boxes can be opened.
+    Parameters:
+    boxes (list): A list of lists to be checked.
+    Returns:
+    True if all boxes can be opened, else return False.
+    """
     opened_boxes = set()
     opened_boxes.add(0)
     
