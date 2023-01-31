@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 Returns a boolean which determines if all the boxes can be opened.
 """
