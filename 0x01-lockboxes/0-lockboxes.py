@@ -1,3 +1,8 @@
+"""
+Returns a boolean which determines if all the boxes can be opened.
+"""
+
+
 def canUnlockAll(boxes):
     opened_boxes = set()
     opened_boxes.add(0)
