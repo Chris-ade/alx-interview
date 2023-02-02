@@ -12,13 +12,15 @@ def canUnlockAll(boxes):
     Returns:
     True if all boxes can be opened, else return False.
     """
-    opened_boxes = set()
-    opened_boxes.add(0)
-    stack = [0]
-    while stack:
-        box = stack.pop()
-        for key in boxes[box]:
-            if key not in opened_boxes:
-                opened_boxes.add(key)
-                stack.append(key)
-    return len(opened_boxes) == len(boxes)
+    if ((type(boxes) is not list) or len(boxes) == 0):
+        return False
+    for k in range(1, len(boxes) - 1):
+        boxes_checked = False
+        for idx in range(len(boxes)):
+            boxes_checked = k in boxes[idx] and k != idx
+            if boxes_checked:
+                break
+        if boxes_checked is False:
+            return boxes_checked
+    return True
+
