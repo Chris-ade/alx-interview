@@ -6,7 +6,7 @@ Returns a boolean which determines if all the boxes can be opened.
 
 def canUnlockAll(boxes):
     """
-    Returns a boolean which determines if all the boxes can be opened.
+    Returns a Boolean
     Parameters:
     boxes (list): A list of lists to be checked.
     Returns:
