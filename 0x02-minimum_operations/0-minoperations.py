@@ -11,14 +11,14 @@ def minOperations(n: int) -> int:
     Returns:
         int: The minimum number of operations needed to achieve n H characters.
     """
-    if n <= 0:
+    if n < 2:
         return 0
-    operations = 0
-    i = 2
-    while i <= n:
-        operations += 1
-        while n % i == 0:
-            n = n / i
-            operations += 1
+    operations = []
+    i = 1
+    while n != 1:
         i += 1
-    return operations
+        if n % i == 0:
+            while n % i == 0:
+                n /= i
+                operations.append(i)
+    return sum(operations)
