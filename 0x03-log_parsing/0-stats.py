@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" Reads stdin line by line and computes metrics """
+
 import sys
 
 total_size = 0
