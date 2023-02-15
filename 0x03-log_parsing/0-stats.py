@@ -3,40 +3,43 @@
 
 import sys
 
-total_size = 0
-status_codes = {
-    200: 0,
-    301: 0,
-    400: 0,
-    401: 0,
-    403: 0,
-    404: 0,
-    405: 0,
-    500: 0
-}
+codes = {}
+status_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
+count = 0
+size = 0
 
 try:
-    count = 0
-    for line in sys.stdin:
-        count += 1
-        elements = line.split()
-        if len(elements) != 9:
-            continue
+    for ln in sys.stdin:
+        if count == 10:
+            print("File size: {}".format(size))
+            for key in sorted(codes):
+                print("{}: {}".format(key, codes[key]))
+            count = 1
+        else:
+            count += 1
+
+        ln = ln.split()
+
         try:
-            size = int(elements[-1])
-            status = int(elements[-2])
-            total_size += size
-            if status in status_codes:
-                status_codes[status] += 1
-        except ValueError:
-            continue
-        if count % 10 == 0:
-            print("File size: {}".format(total_size))
-            for status in sorted(status_codes.keys()):
-                if status_codes[status] > 0:
-                    print("{}: {}".format(status, status_codes[status]))
+            size = size + int(ln[-1])
+        except (IndexError, ValueError):
+            pass
+
+        try:
+            if ln[-2] in status_codes:
+                if codes.get(ln[-2], -1) == -1:
+                    codes[ln[-2]] = 1
+                else:
+                    codes[ln[-2]] += 1
+        except IndexError:
+            pass
+
+    print("File size: {}".format(size))
+    for key in sorted(codes):
+        print("{}: {}".format(key, codes[key]))
+
 except KeyboardInterrupt:
-    print("File size: {}".format(total_size))
-    for status in sorted(status_codes.keys()):
-        if status_codes[status] > 0:
-            print("{}: {}".format(status, status_codes[status]))
+    print("File size: {}".format(size))
+    for key in sorted(codes):
+        print("{}: {}".format(key, codes[key]))
+    raise
