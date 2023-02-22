@@ -20,7 +20,7 @@ def validUTF8(data):
             elif (i >> 7) == 0b0:
                 num_bytes = 0
             else:
-                # Current byte is a continuation byte or an invalid UTF-8 character
+                # Current byte is a continuation byte or an invalid UTF-8 char
                 return False
         else:
             # Check if the current byte is a continuation byte
