@@ -2,6 +2,7 @@
 """ N-Queens Module """
 import sys
 
+
 def is_valid(board, row, col):
     """ Check if valid """
     for i in range(row):
