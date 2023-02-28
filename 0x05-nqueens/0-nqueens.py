@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" N-Queens Module """
+""" 
+N-Queens Module
+"""
 import sys
 
 
@@ -12,6 +14,7 @@ def is_valid(board, row, col):
             return False
     return True
 
+
 def solve_n_queens(n, row, board, solutions):
     """ Solve """
     if row == n:
@@ -23,6 +26,7 @@ def solve_n_queens(n, row, board, solutions):
             board[row] = col
             solve_n_queens(n, row + 1, board, solutions)
             board[row] = -1
+
 
 def print_solutions(solutions):
     """ Print solutions """
