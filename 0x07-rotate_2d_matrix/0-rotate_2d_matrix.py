@@ -17,4 +17,5 @@ def rotate_2d_matrix(matrix):
     # Reverse each row of the transposed matrix
     for i in range(n):
         for j in range(n // 2):
-            matrix[i][j], matrix[i][n - j - 1] = matrix[i][n - j - 1], matrix[i][j]
+            matrix[i][j], matrix[i][n - j - 1] = \
+                matrix[i][n - j - 1], matrix[i][j]
